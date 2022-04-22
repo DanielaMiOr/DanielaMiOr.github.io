@@ -1,0 +1,21 @@
+@media  (max-width: 1024px) {
+    .containerHome{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+ .seeker{
+    position: absolute;
+    align-items: flex-start;
+    width: 328px;
+    height: 70px;
+    background:rgba(190, 160, 234, 1);
+    border: 1px solid #B2D3E1;
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: center;
+    font-family:'Vibes', cursive ;
+ } 
+    
+}

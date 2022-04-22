@@ -1,0 +1,105 @@
+@media  (max-width: 1024px) {
+    
+   *{
+   margin: 0;
+   padding: 0;
+
+   } 
+   body{
+    display: flex;
+    flex-direction: row;
+    background-image: url(./images/space.jpg);
+    background-size: cover;
+     height: 100%; 
+     width: 100%;
+    background-repeat: no-repeat; 
+   }
+  .boxLogo{
+      display: flex;
+     
+  }
+   .logoletters{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       font-family: 'Vibes', cursive;
+       color: rgba(255, 255, 255, 1);
+       font-style: normal;
+       font-weight: 400;
+       font-size: 96px;
+       line-height: 171px;
+       left: 100px;
+   }
+   .imagenLogo{
+       width: 280px; 
+       height: 280px;
+       justify-content: center;
+       align-items: center;
+   }
+   .container{
+    position: absolute;
+    width: 450px;
+    height: 767px;
+    left: 181px;
+    top: 298px;
+    display:flex;
+    background: rgba(206, 5, 146, 0.79);
+    border: 4px solid #140375;
+    box-sizing: border-box;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+   }
+#logIn{
+    position: absolute;
+width: 138px;
+height: 58px;
+/* left: calc(50% - 138px/2 + 16px); */
+top: calc(50% - 58px/2 - 277px);
+justify-content: center;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 48px;
+line-height: 58px;
+
+
+text-align: center;
+
+color: #FFFFFF;
+
+}
+.inputEmail{
+position: absolute;
+align-items: flex-start;
+width: 328px;
+height: 70px;
+background: #FFFFFF;
+border: 1px solid #B2D3E1;
+box-sizing: border-box;
+border-radius: 10px;
+text-align: center;
+}
+.inputPassword{
+background: #FFFFFF;
+border: 1px solid #B2D3E1;
+box-sizing: border-box;
+border-radius: 10px;
+width: 328px;
+height: 70px;
+  
+}
+   .buttonGoogle{
+    position: absolute;
+width: 130px;
+height: 106px;
+border-radius: 60px;
+background: #FFFFFF;
+   }
+   .google{
+    position: absolute;
+width: 90px;
+height: 80px;   
+   }
+  }
+  
