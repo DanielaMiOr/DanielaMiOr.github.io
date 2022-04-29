@@ -1,22 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './components/login';
 import SignUp from './components/signup';
 import Notes from './components/notes';
 import EditNote from './components/edit-note';
-
+import NewNote from './components/new-notes';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
     <Routes>
-      <Route path= "login" element={  <Login />} />
-      <Route path= "sign up" element={  <SignUp />} />
-      <Route path= "notes" element={  <Notes />} />
-      <Route path= "edit/note" element={  <EditNote />} />
+      <Route path= "/" element={  <Login />} />
+      <Route path= "/signUp" element={  <SignUp />} />
+      <Route path= "/notes" element={  <Notes />} />
+      <Route path= "/newNote" element={  <NewNote />} />
+      <Route path= "/edit/note" element={  <EditNote />} />
     </Routes>
     </BrowserRouter>
   

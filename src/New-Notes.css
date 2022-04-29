@@ -1,0 +1,136 @@
+@media  (max-width: 2000px) {
+    
+    *{
+    margin: 0;
+    padding: 0;
+ 
+    } 
+    body{
+     display: flex;
+     background-image: url(./images/space.jpg);
+     background-size: cover;
+     height: 100%; 
+     width: 100%;
+     background-repeat: no-repeat; 
+     justify-content: center;
+     align-items: center;
+    }
+   
+   .boxLogo{
+       display: flex;
+       align-items: center;
+       justify-content: flex-start;
+      
+   }
+    .logoletters{
+        display: flex;
+        font-family: 'Vibes', cursive;
+        color: rgba(255, 255, 255, 1);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 96px;
+        line-height: 171px;
+        right: 100px;
+    }
+    .imagenLogo{
+        width: 280px; 
+        height: 280px;
+    }
+    .box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .container{
+        display: flex;
+        width: 80%;
+        height: 40%;
+        background: rgba(206, 5, 146, 0.79);
+        border: 4px solid #140375;
+        border-radius: 15px;
+        align-items: center;
+        flex-direction: column;
+       
+       }
+       .closePage{
+           display: flex;
+           width: 90px;
+           height: 90px;
+           background-color: transparent;
+           margin-left: -630px;
+           margin-top: 16px;
+           display: flex;
+           border: none;
+           
+       }
+       .closeNote{
+           
+           width: 50px;
+           height: 50px;
+           margin-top: -105px;
+           margin-left: -630px;
+           display: flex;
+           
+       }
+       .check{
+        width: 90px;
+        height: 90px;
+        background-color: transparent;
+        margin-right: -630px;
+        margin-top: -100px;
+        display: flex;
+        /* border: none; */
+        
+       }
+       .checkNote{
+        width: 50px;
+        height: 50px;
+        margin-top: -111px;
+        margin-right: -630px;
+        display: flex;
+       }
+       .post{
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        width: 100%;
+        height: 100%;
+    
+
+       }
+       .boxInputs{
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           gap:40px;
+           flex-direction: column;
+       }
+       .inputTitle{
+           display: flex;
+           width: 300px;
+           height: 50px;
+           background-color: #CE0592;
+           font-family: Roboto;
+           color: black;
+           font-size: 20px;
+           margin-top: -850px;
+           text-align: center;
+           border-radius: 10px;
+           transition: 0.5s;
+           outline: none;
+        }
+        .inputNote{
+            display: flex;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            align-items: flex-start;
+            border: transparent;
+            font-family: Roboto;
+            font-size: 20px;
+            color: black;
+            transition: 0.5s;
+            outline: none;
+        }
+}
