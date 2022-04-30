@@ -1,10 +1,19 @@
 import '../New-Notes.css';
 import { useNavigate } from 'react-router';
+import { note } from '../firebase/firebase';
+import { Header } from "./header";
+import { useState } from "react";
 
 export default function NewNote(){
+const [noteTitle, setNoteTitle] = useState("");
+const [noteText, setNoteText] = useState("");
 
 const navigate= useNavigate();
-function ChekNote(){
+function CheckNote(){
+console.log(noteTitle);
+console.log(noteText);
+
+      note( noteTitle, noteText)
     navigate('/notes')
 }
 
@@ -15,12 +24,7 @@ function Notes(){
 
 
     return <div className= "box">
-       <header className="logoletters boxLogo">Space Note
-                <img
-                    className="imagenLogo boxLogo"
-                    src={require(`../images/logo.png`)}
-                    alt="logo" />
-            </header>
+       <Header/>
             <section className="container">
 
                 <button className= "closePage" onClick= {Notes}></button>
@@ -28,7 +32,7 @@ function Notes(){
                 className= "closeNote"
                 src={require(`../images/closeNote.png`)}
                 alt= "close"/>
-                <button className= "check" onClick= {ChekNote}></button>
+                <button className= "check" onClick= {CheckNote}></button>
                 <img
                 className= "checkNote"
                 src={require(`../images/check.png`)}
@@ -42,14 +46,15 @@ function Notes(){
                     type="title"
                     className="inputTitle"
                     placeholder="title:"
-                    autoComplete="off" onChange
+                    autoComplete="off" onChange={(event) =>{setNoteTitle(event.target.value)}}
 
                 />
                  <input
                     type="noteWrite"
                     className="inputNote"
                     placeholder="write:"
-                    autoComplete="off" onChange
+                    autoComplete="off" onChange={(event) =>{setNoteText(event.target.value)}}
+
 
                 />
                 </div>

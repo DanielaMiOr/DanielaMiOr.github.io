@@ -1,4 +1,4 @@
-@media  (max-width: 1024px) {
+@media  (max-width: 2000px) {
    *{
       margin:0;
       padding:0;
@@ -103,6 +103,28 @@ justify-content: center;
 height: 80px;
 width: 80px;
 margin-top: -85px;
+}
+.containerNotes{
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+   width: 100%;
+   height: 100%;
+}
+.miniNote{
+display: flex;
+
+}
+.notes{
+   width: 50%;
+   height: 50%;
+}
+.textNote{
+   margin-top: 20px;
+   width:100%;
+   height: 100%;
+   
 }
     
 }
