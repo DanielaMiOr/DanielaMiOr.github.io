@@ -58,38 +58,27 @@
            width: 90px;
            height: 90px;
            background-color: transparent;
-           margin-left: -500px;
-           margin-top: 16px;
+           margin-left: -520px;
+           margin-top: 30px;
            display: flex;
-           /* border: none; */
+           background-image: url(./images/closeNote.png);
+           border: none;
+           background-repeat: no-repeat;
            
        }
-       .closeNote{
-           
-           width: 50px;
-           height: 50px;
-           margin-top: -105px;
-           margin-left: -500px;
-           display: flex;
-           
-       }
+      
        .check{
         width: 90px;
         height: 90px;
         background-color: transparent;
-        margin-right: -500px;
-        margin-top: -100px;
+        margin-right: -520px;
+        margin-top: -130px;
         display: flex;
-        /* border: none; */
+        border: none;
+        background-image: url(./images/check.png);
         
        }
-       .checkNote{
-        width: 50px;
-        height: 50px;
-        margin-top: -111px;
-        margin-right: -500px;
-        display: flex;
-       }
+      
        .post{
         display: flex;
         justify-content: center;
@@ -115,7 +104,7 @@
            color: black;
            font-size: 20px;
            margin-top: -850px;
-           text-align: center;
+           text-align:justify;
            border-radius: 10px;
            transition: 0.5s;
            outline: none;
@@ -132,5 +121,6 @@
             color: black;
             transition: 0.5s;
             outline: none;
+            overflow: auto;
         }
 }

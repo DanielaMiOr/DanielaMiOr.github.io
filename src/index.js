@@ -10,17 +10,17 @@ import NewNote from './components/new-notes';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <BrowserRouter>
+  <BrowserRouter>
     <Routes>
-      <Route path= "/" element={  <Login />} />
-      <Route path= "/signUp" element={  <SignUp />} />
-      <Route path= "/notes" element={  <Notes />} />
-      <Route path= "/newNote" element={  <NewNote />} />
-      <Route path= "/edit/note" element={  <EditNote />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/signUp" element={<SignUp />} />
+      <Route path="/notes" element={<Notes />} />
+      <Route path="/newNote" element={<NewNote />} />
+      <Route path="/edit/note/:id" element={<EditNote />} />
     </Routes>
-    </BrowserRouter>
-  
-  
+  </BrowserRouter>
+
+
 );
 
 // If you want to start measuring performance in your app, pass a function

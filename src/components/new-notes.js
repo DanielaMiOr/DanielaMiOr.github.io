@@ -28,15 +28,9 @@ function Notes(){
             <section className="container">
 
                 <button className= "closePage" onClick= {Notes}></button>
-                <img
-                className= "closeNote"
-                src={require(`../images/closeNote.png`)}
-                alt= "close"/>
+                
                 <button className= "check" onClick= {CheckNote}></button>
-                <img
-                className= "checkNote"
-                src={require(`../images/check.png`)}
-                alt= "post"/>
+               
                 <img
                 className= "post"
                 src={require(`../images/post.png`)}

@@ -1,0 +1,51 @@
+
+@media  (max-width: 2000px) {
+    
+.containerNotes{
+    display: inline-block;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+  
+ }
+ .contenedor{
+margin-top: 50px;
+ position: relative;
+ display: inline-block;
+ text-align: center;
+}
+.notes{
+   width: 450px;
+   height: 300px;
+}
+ .textNote{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+ }
+ .delete{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    bottom:12%;
+    right: 18%;
+    background-image: url(./images/Delete.png);
+    background-repeat: no-repeat;
+    border: none;
+ }
+ .edit{
+   position: absolute;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    bottom:10%;
+    right: 30%;
+    background-image: url(./images/Edit.png);
+    background-repeat: no-repeat;
+    border: none;  
+ }
+}   
+ 

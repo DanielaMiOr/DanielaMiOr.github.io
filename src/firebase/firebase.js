@@ -3,8 +3,8 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getAuth} from 'firebase/auth';
 import {getStorage, ref, uploadBytes, getDownloadURL,getBytes } from 'firebase/storage';
-import {getFirestore, collection, addDoc, getDocs,orderBy, doc, getDoc, query,serverTimestamp,updateDoc, where, setDoc, deleteDoc} from 'firebase/firestore';
-import { async } from "@firebase/util";
+import {getFirestore, doc, getDoc, collection, addDoc, getDocs, orderBy, query,serverTimestamp,updateDoc, where, setDoc, deleteDoc, getDocFromCache} from 'firebase/firestore';
+// import { async } from "@firebase/util";
 // import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "@firebase/auth"
 export { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithEmailAndPassword } from "@firebase/auth"
 
@@ -26,8 +26,8 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-export const auth = getAuth(app);
-const db = getFirestore(app);
+export  const auth = getAuth(app);
+export const db = getFirestore(app);
 const storage = getStorage(app);
 
 export async function userExists(uid){
@@ -49,13 +49,18 @@ export const note = (  title, note) => {
 };
 
 export const getNotes = async () => {
-  const noteRef = collection(db, 'Notes');
+  const noteRef = collection(db, 'notes');
   const auth = getAuth();
   const userlogin = auth.currentUser;
   const uid = userlogin.uid;
   const orderNotes = await getDocs(query(noteRef,where("uid", "==", uid), orderBy('timestamp', 'desc')));
   return orderNotes;
 };
-export const getNoteEdit = (id) => getDoc(doc(db, 'Posts', id));
-export const updateNote = (id, newFields) => updateDoc(doc(db, 'Posts', id), newFields);
+
+
+export const getNoteEdit = async (id) => {
+  const docRes = await getDoc(doc(db, 'notes', id));
+  return docRes;
+} 
+export const updateNote = (id, newFields) => updateDoc(doc(db, 'notes', id), newFields);
 
