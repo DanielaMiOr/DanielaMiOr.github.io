@@ -19,12 +19,18 @@ updatedNote.note =  noteText;
   updateNote(id, updatedNote);  
   navigate('/notes') 
 }
+const HandleTitle = (event)=>{
+  setNoteTitle(event.target.value)
+}
+const HandleText = (event)=>{
+  setNoteText(event.target.value)
+}
 
 function Notes(){
     navigate('/notes')
   }
 const getNoteInfo = async()=>{
-  console.log(id)
+  
    const docNoteEdit =  await  getNoteEdit(id);
    const noteEdit = docNoteEdit.data();
    console.log(noteEdit)
@@ -54,7 +60,7 @@ const getNoteInfo = async()=>{
                     className="inputTitle"
                     placeholder="title:" 
                     value = {noteTitle}
-                    autoComplete="off" onChange={(event) =>{setNoteTitle(event.target.value)}}
+                    autoComplete="off" onChange={HandleTitle}
 
                 />
                  <input
@@ -62,7 +68,7 @@ const getNoteInfo = async()=>{
                     className="inputNote"
                     placeholder="write:"
                     value ={noteText}
-                    autoComplete="off" onChange={(event) =>{setNoteText(event.target.value)}}
+                    autoComplete="off" onChange={HandleText}
 
 
                 />
@@ -70,25 +76,3 @@ const getNoteInfo = async()=>{
                 </section>
                 </div>
 }
-// import { useNavigate } from "react-router";
-// import { getNoteEdit, note } from "../firebase/firebase"
-
-
-// export default function EditNote() {
-    
-//     const editNote = async () => {
-//         const docId = Event.target.dataset.id;
-//         const edit = await getNoteEdit(docId);
-//         const postData = note.data();
-//         postData.text = note.value;
-//         console.log(editNote)
-//         //  updateText(
-//         //    docId,
-//         //    postData,
-//         //  );
-
-//     }
-    
-//     return <div>{() => edit()}</div>
-// }
-

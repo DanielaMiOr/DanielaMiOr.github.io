@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { auth } from "../firebase/firebase";
 import '../Login.css';
-// import {userNavigate} from "react-router-dom";
 import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithEmailAndPassword } from "../firebase/firebase"
 import { Link, useNavigate } from "react-router-dom";
 
@@ -14,7 +13,7 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const loginWithEmail = (e) => {
+    const LoginWithEmail = (e) => {
         e.preventDefault();
 
         signInWithEmailAndPassword(auth, email, password)
@@ -41,7 +40,7 @@ export default function Login() {
         }
     }
 
-    async function googleOnClick() {
+    async function GoogleOnClick() {
         const googleProvider = new GoogleAuthProvider();
         await signInWithGoogle(googleProvider);
 
@@ -92,7 +91,7 @@ export default function Login() {
     function ButtonLogin(){
         return(
             
-            <button className="buttonLogin" onClick={loginWithEmail} >Login</button> 
+            <button className="buttonLogin" onClick={LoginWithEmail} >Login</button> 
             
         );
     }
@@ -107,7 +106,7 @@ export default function Login() {
     function ButtonGoogle(){
         return(
              
-            <button className="buttonGoogle" onClick={googleOnClick}></button>
+            <button className="buttonGoogle" onClick={GoogleOnClick}></button>
             
         );
     }

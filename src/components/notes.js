@@ -11,14 +11,7 @@ export default function Notes() {
   }
   const [notes, setNotes] = useState([])
 
-  //  const  getNotesInfo = async ()=> {
-  //     const posts =  await getNotes();
-  //       posts.docs.forEach(item => {
-  //           setNotes([...notes, item.data()])
-
-  //         })
-  //         console.log({notes});
-  //   }    
+ 
 
   let localDoc;
   const getNotesInfo = async () => {
@@ -34,7 +27,7 @@ export default function Notes() {
     setNotes(arrayPost)
   }
 
-  const newNote = () => {
+  const NewNote = () => {
     navigate('/newNote')
   }
 
@@ -59,7 +52,7 @@ export default function Notes() {
           placeholder="look for your note..."
           autoComplete="off"
         />
-        <button className="noteButton" onClick={newNote}></button>
+        <button className="noteButton" onClick={NewNote}></button>
         <div className="containerNotes">
           {
             notes && notes.map(note => {

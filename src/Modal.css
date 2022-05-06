@@ -1,0 +1,51 @@
+.modal{
+position: relative;
+width: 704px;
+height: 546px;
+background-color:  rgba(83, 110, 175, 0.85);
+border-radius: 15px;;
+}
+.titleModal{
+font-family: 'Roboto';
+font-weight: 500;
+font-size: 40px;
+line-height: 48px;
+color: #000000;
+}
+.tex{
+    position: absolute;
+    width: 463px;
+    height: 44px;
+    left: 67px;
+    top: 169px;
+    
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    
+    
+    
+    color: #FFFFFF;   
+}
+.deleteNote{
+position: absolute;
+width: 246.81px;
+height: 93.06px;
+left: 352px;
+top: 334px;
+background-color: #1606A2;
+border-radius: 30px;
+color:white;
+}
+.cancel{
+position: absolute;
+width: 235.22px;
+height: 93.06px;
+left: calc(50% - 235.22px/2 - 170.8px);
+top: calc(50% - 93.06px/2 + 167px);
+color:white;  
+background: #000000;
+border-radius: 30px;  
+}

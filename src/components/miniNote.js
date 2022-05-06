@@ -1,19 +1,32 @@
-import { getNotes } from '../firebase/firebase';
+
 import '../MiniNote.css';
-import NewNote from './new-notes';
-import EditNote from './edit-note';
+import React from 'react';
 import { useNavigate } from 'react-router';
+import { ConfirmDelete } from './customModal';
+import { getNotes } from '../firebase/firebase';
+import { useEffect } from 'react';
 
 
 
 
-export function MiniNote({ note }) {
+
+
+export const MiniNote =({ note })=> {
     const navigate= useNavigate();
 
-    const editNote = () => {
-        console.log('/edit/note/'+ note.id)
+    const EditNote = () => {
+        
         navigate('/edit/note/'+ note.id)
       }
+      const Delete= ()=>{
+        ConfirmDelete(note.id);
+        
+      }
+      useEffect( () => {
+        getNotes()
+        // eslint-disable-next-line
+      }, [] )  
+    
     return (
 
         <div className="contenedor">
@@ -26,9 +39,9 @@ export function MiniNote({ note }) {
 
                 <p className="textNote cajita">{note.title}
                 </p>
-                <button className="delete">
-                </button>
-                <button className="edit" onClick={editNote}>
+                <button className="delete" onClick= {Delete}>
+                </button >
+                <button className="edit" onClick={EditNote}>
 
                 </button>
             </div>

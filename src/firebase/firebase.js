@@ -64,3 +64,9 @@ export const getNoteEdit = async (id) => {
 } 
 export const updateNote = (id, newFields) => updateDoc(doc(db, 'notes', id), newFields);
 
+ export const deleteNote = async (id) => {
+  const noteDoc = doc(db, 'notes', id)
+  await deleteDoc(noteDoc)
+  
+ }
+

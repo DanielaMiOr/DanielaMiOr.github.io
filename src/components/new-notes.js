@@ -16,7 +16,12 @@ console.log(noteText);
       note( noteTitle, noteText)
     navigate('/notes')
 }
-
+const Title = (event)=>{
+  setNoteTitle(event.target.value)
+}
+const Text = (event)=>{
+  setNoteText(event.target.value)
+}
 function Notes(){
     navigate('/notes')
   }
@@ -40,14 +45,14 @@ function Notes(){
                     type="title"
                     className="inputTitle"
                     placeholder="title:"
-                    autoComplete="off" onChange={(event) =>{setNoteTitle(event.target.value)}}
+                    autoComplete="off" onChange={Title}
 
                 />
                  <input
                     type="noteWrite"
                     className="inputNote"
                     placeholder="write:"
-                    autoComplete="off" onChange={(event) =>{setNoteText(event.target.value)}}
+                    autoComplete="off" onChange={Text}
 
 
                 />
