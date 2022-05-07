@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getAuth} from 'firebase/auth';
 import {getStorage, ref, uploadBytes, getDownloadURL,getBytes } from 'firebase/storage';
-import {getFirestore, doc, getDoc, collection, addDoc, getDocs, orderBy, query,serverTimestamp,updateDoc, where, setDoc, deleteDoc, getDocFromCache} from 'firebase/firestore';
+import {getFirestore, doc, getDoc, collection, addDoc, getDocs, orderBy, query,serverTimestamp,updateDoc, where, setDoc,onSnapshot, deleteDoc, getDocFromCache, enableIndexedDbPersistence} from 'firebase/firestore';
 // import { async } from "@firebase/util";
 // import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "@firebase/auth"
 export { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithEmailAndPassword } from "@firebase/auth"
@@ -70,3 +70,26 @@ export const updateNote = (id, newFields) => updateDoc(doc(db, 'notes', id), new
   
  }
 
+ enableIndexedDbPersistence(db)
+  .catch((err) => {
+      if (err.code == 'failed-precondition') {
+          // Multiple tabs open, persistence can only be enabled
+          // in one tab at a a time.
+          // ...
+      } else if (err.code == 'unimplemented') {
+          // The current browser does not support all of the
+          // features required to enable persistence
+          // ...
+      }
+  });
+  const q = query(collection(db, "notes"), where("uid", "==", "uid"));
+  onSnapshot(q, { includeMetadataChanges: true }, (snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+          if (change.type === "added") {
+              console.log("New city: ", change.doc.data());
+          }
+  
+          const source = snapshot.metadata.fromCache ? "local cache" : "uid";
+          console.log("Data came from " + source);
+      });
+  });

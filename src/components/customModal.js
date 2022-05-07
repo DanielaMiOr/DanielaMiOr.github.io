@@ -8,9 +8,9 @@ const MySwal = withReactContent(Swal)
 
  
 
-export const ConfirmDelete = (id) => {
-    
-    MySwal.fire({
+export const ConfirmDelete = async (id) => {
+  let res = false;
+    const accept = await MySwal.fire({
       
       title: 'Delete Note',
       text: 'Are you sure to remove it??',
@@ -22,14 +22,9 @@ export const ConfirmDelete = (id) => {
     }).then((result) => {
       if (result.isConfirmed) { 
         //llamamos a la fcion para eliminar   
-        deleteNote(id)               
-        Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
-        
+        deleteNote(id) 
+        res=true        
       }
-    })  
-  
+    }) || {};  
+      return res;
   }

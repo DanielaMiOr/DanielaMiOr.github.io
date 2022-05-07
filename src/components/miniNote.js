@@ -3,29 +3,36 @@ import '../MiniNote.css';
 import React from 'react';
 import { useNavigate } from 'react-router';
 import { ConfirmDelete } from './customModal';
-import { getNotes } from '../firebase/firebase';
-import { useEffect } from 'react';
+import { getNotes} from '../firebase/firebase';
+import { useEffect, useState } from 'react';
+import Swal from 'sweetalert2'
 
 
 
 
 
 
-export const MiniNote =({ note })=> {
+export const MiniNote =({ note, getNotesInfo })=> {
     const navigate= useNavigate();
+    
 
     const EditNote = () => {
         
         navigate('/edit/note/'+ note.id)
       }
-      const Delete= ()=>{
-        ConfirmDelete(note.id);
+      const Delete= async ()=>{
+        const confDelete = await ConfirmDelete(note.id);
+        if(confDelete){
+            getNotesInfo();
+            Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+        }
         
       }
-      useEffect( () => {
-        getNotes()
-        // eslint-disable-next-line
-      }, [] )  
+       
     
     return (
 

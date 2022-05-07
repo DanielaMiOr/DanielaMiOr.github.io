@@ -15,7 +15,6 @@ export default function Notes() {
 
   let localDoc;
   const getNotesInfo = async () => {
-
     const posts = await getNotes();
     const arrayPost = [];
     posts.docs.forEach(item => {
@@ -29,6 +28,9 @@ export default function Notes() {
 
   const NewNote = () => {
     navigate('/newNote')
+  }
+  const deleteNote=(note)=>{
+   
   }
 
   useEffect(() => {
@@ -57,7 +59,7 @@ export default function Notes() {
           {
             notes && notes.map(note => {
               return (
-                <MiniNote note={note} />
+                <MiniNote key={note.id} note={note} getNotesInfo={getNotesInfo} />
               )
             })
 
