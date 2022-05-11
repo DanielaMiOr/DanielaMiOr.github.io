@@ -122,5 +122,6 @@
             transition: 0.5s;
             outline: none;
             overflow: auto;
+            word-wrap: break-word;
         }
 }
