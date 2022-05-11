@@ -53,4 +53,6 @@ export class GoogleAuthProvider {
   static credentialFromResult(userCredential) {
     return { accessToken: 123 };
   }
+  
 }
+export const note =  jest.fn((title, note)=> ({}));

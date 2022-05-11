@@ -34,7 +34,7 @@ function Notes(){
 
                 <button className= "closePage" onClick= {Notes}></button>
                 
-                <button className= "check" onClick= {CheckNote}></button>
+                <button aria-label='check' className= "check" onClick= {CheckNote}></button>
                
                 <img
                 className= "post"

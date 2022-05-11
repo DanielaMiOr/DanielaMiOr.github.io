@@ -3,8 +3,6 @@ import '../MiniNote.css';
 import React from 'react';
 import { useNavigate } from 'react-router';
 import { ConfirmDelete } from './customModal';
-import { getNotes} from '../firebase/firebase';
-import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2'
 
 

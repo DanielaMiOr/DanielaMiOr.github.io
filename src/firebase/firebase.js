@@ -1,12 +1,13 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import {getAuth} from 'firebase/auth';
-import {getStorage, ref, uploadBytes, getDownloadURL,getBytes } from 'firebase/storage';
-import {getFirestore, doc, getDoc, collection, addDoc, getDocs, orderBy, query,serverTimestamp,updateDoc, where, setDoc,onSnapshot, deleteDoc, getDocFromCache, enableIndexedDbPersistence} from 'firebase/firestore';
+import {getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import {getStorage } from 'firebase/storage';
+import {getFirestore, doc, getDoc, collection, addDoc, getDocs, orderBy, query,serverTimestamp,updateDoc, where, onSnapshot, deleteDoc, getDocFromCache, enableIndexedDbPersistence} from 'firebase/firestore';
 // import { async } from "@firebase/util";
 // import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "@firebase/auth"
-export { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithEmailAndPassword } from "@firebase/auth"
+export { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "@firebase/auth"
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -37,6 +38,19 @@ export async function userExists(uid){
 return res.exists();
 }
 
+
+
+  createUserWithEmailAndPassword(auth)
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
 
 export const note = (  title, note) => {
   const db = getFirestore();
@@ -72,11 +86,11 @@ export const updateNote = (id, newFields) => updateDoc(doc(db, 'notes', id), new
 
  enableIndexedDbPersistence(db)
   .catch((err) => {
-      if (err.code == 'failed-precondition') {
+      if (err.code === 'failed-precondition') {
           // Multiple tabs open, persistence can only be enabled
           // in one tab at a a time.
           // ...
-      } else if (err.code == 'unimplemented') {
+      } else if (err.code === 'unimplemented') {
           // The current browser does not support all of the
           // features required to enable persistence
           // ...

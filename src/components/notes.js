@@ -29,9 +29,7 @@ export default function Notes() {
   const NewNote = () => {
     navigate('/newNote')
   }
-  const deleteNote=(note)=>{
-   
-  }
+  
 
   useEffect(() => {
     getNotesInfo();
